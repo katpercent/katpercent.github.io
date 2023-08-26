@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(#8a0000, black);
+  /*background-color: #2f3136;*/
+  color: #ffffff;
+  padding: 0px 0px 20px 0px;
+  border-radius: 5px;
+  width: 40%;
+  margin: 30px;
+}
+
+.banner img {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+.avatar img {
+  margin-left: 5%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: -80px;
+  border: 3px solid #000000;
+}
+
+.info {
+  margin: 3% 3% 3% 3%;
+  margin-top: 20px;
+  background-color: #000000;
+  opacity: 70%;
+  padding: 20px;
+}
+
+.info h1 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  opacity:100%;
+}
+
+.info p {
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+.info a {
+  color: #7289da;
+  text-decoration: none;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.pronoun {
+  color: #b9bbbe;
+}
+
+.aboutme {
+  margin-top: 15px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.button{
+  margin-bottom: 10px;
+  background-color: #8a0000;
+  border-color: transparent;
+  border-radius: 5px;
+  width: 95%;
+  padding: 7px;
+}

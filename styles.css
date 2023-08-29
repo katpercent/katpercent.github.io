@@ -64,15 +64,24 @@ body {
 }
 
 .aboutme {
-  margin-top: 15px;
+  margin-top: 10px;
   font-size: 14px;
   margin-bottom: 10px;
 }
 .button{
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
   background-color: #8a0000;
   border-color: transparent;
   border-radius: 5px;
   width: 95%;
   padding: 7px;
+}
+#grandimage{
+  width: 25%;
+}
+.rpc{
+  font-size: 14px;
+  margin-top: -1%;
+  margin-left: 20%;
 }

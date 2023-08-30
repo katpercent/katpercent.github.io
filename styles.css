@@ -1,14 +1,5 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-}
-
 .profile {
-  display: flex;
-  flex-direction: column;
   background-image: linear-gradient(#8a0000, black);
-  /*background-color: #2f3136;*/
   color: #ffffff;
   padding: 0px 0px 20px 0px;
   border-radius: 5px;
@@ -17,7 +8,8 @@ body {
 }
 
 .banner img {
-  width: 100%;
+  width: 99%;
+  padding: 0.5% 0.5% 0.5%;
   border-radius: 5px 5px 0 0;
 }
 
@@ -27,15 +19,14 @@ body {
   height: 150px;
   border-radius: 50%;
   margin-top: -80px;
-  border: 3px solid #000000;
+  border: 10px solid transparent;
 }
 
 .info {
   margin: 3% 3% 3% 3%;
   margin-top: 20px;
-  background-color: #000000;
-  opacity: 70%;
   padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);;
 }
 
 .info h1 {
@@ -80,8 +71,9 @@ body {
 #grandimage{
   width: 25%;
 }
-.rpc{
-  font-size: 14px;
-  margin-top: -1%;
-  margin-left: 20%;
+#rpc p{
+  font-size: 16px;
+}
+#rpc{
+  margin: -18% 0% 6% 30%;
 }

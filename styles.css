@@ -15,10 +15,10 @@
 
 .img .avatar {
   margin-left: 1%;
-  width: 140px;
-  height: 140px;
+  width: 25%;
+  height: 25%;
   border-radius: 50%;
-  margin-top: -10%;
+  margin-top: -19%;
   border: 10px solid transparent;
 }
 
@@ -66,20 +66,18 @@
   margin-bottom: 8px;
 }
 .allbutton{
-  margin: -15% 0% 20% 40%;
+  margin: -10% 0% 13% 40%;
 }
 .allbutton .button {
   border: 0px solid transparent;
   color: black;
   padding: 2px 2px;
-  text-align: center;
-  text-decoration: none;
   display: inline-block;
   font-size: 16px;
   float: right;
 }
 button:hover {
-  cursor: hand;
+  cursor: grab;
 }
 
 #X button{
@@ -137,5 +135,5 @@ button:hover {
 }
 
 #rpc{
-  margin: -20% 0% 10% 22%;
+  margin: -20% 0% 0% 22%;
 }

@@ -1,15 +1,22 @@
+body{
+  background-color: #313338;
+}
+
+/*DISCORD PROFILE  /    */
+/*                \/    */
+
 .profile {
   background-image: linear-gradient(#8a0000, black);
-  color: #ffffff;
+  color: #B5BAC1;
   padding: 0px 0px 20px 0px;
   border-radius: 5px;
-  width: 45%;
-  margin: 30px;
+  width: 30%;
+  height: 60%;
+  margin: 3%;
 }
 
 .img .banner {
-  width: 99%;
-  padding: 0.5% 0.5% 0.5%;
+  width: 100%;
   border-radius: 5px 5px 0 0;
 }
 
@@ -23,18 +30,20 @@
 }
 
 .info {
-  margin: 1% 3% 3% 3%;
+  margin: 3% 3% 3% 3%;
+  height: 40%;
   padding: 10px 20px 20px 20px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .info h1 {
-  font-size: 20px;
+  color: #fff;
+  font-size: 13px;
   margin-bottom: 5px;
 }
 
 .info p {
-  font-size: 14px;
+  font-size: 13px;
   margin: 5px 0;
 }
 
@@ -44,6 +53,7 @@
 }
 
 .username {
+  color: #fff;
   font-weight: bold;
 }
 
@@ -51,18 +61,25 @@
   color: #b9bbbe;
 }
 
+.status {
+  font-size: 13px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .aboutme {
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 6px;
 }
 .h2 {
+  color: #fff;
   margin-top: 12px;
-  font-size: 12px;
+  font-size: 13px;
   margin-bottom: 6px;
 }
 .h3 {
   margin-top: 12px;
-  font-size: 12px;
+  font-size: 13px;
   margin-bottom: 8px;
 }
 .allbutton{
@@ -74,6 +91,7 @@
   padding: 2px 2px;
   display: inline-block;
   font-size: 16px;
+  background-color: transparent;
   float: right;
 }
 button:hover {
@@ -81,59 +99,104 @@ button:hover {
 }
 
 #X button{
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
   border-radius: 30%;
-  background-image: url("X.jpg");
+  background-image: url("X.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
 #Git button{
-  width: 30px;
-  height: 30px;
-  margin-right: 20px;
+  width: 20px;
+  height: 20px;
+  margin-right: 5%;
   border-radius: 30%;
   background-image: url("Git.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
 #THM button{
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
   border-radius: 30%;
   background-image: url("thm.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
 #HTB button{
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
   border-radius: 30%;
   background-image: url("htb.svg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 #Chess button{
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
   border-radius: 30%;
   background-image: url("Chess.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-#grandimage{
-  width: 20%;
+/*NAVBAR SHOW AND HIDE DISCORD PROFILE    /      */
+/*                                       \/      */
+#navbardiscord {
+  margin-left: 5%;
+  background-color: #232428;
+  border: transparent;
+  color: black;
+  text-decoration: none;
+  font-size: 17px;
+  display: flex;
 }
 
-#rpc p{
-  font-size: 14px;
+.fixed {
+  width: 30%;
+}
+.flex-item {
+  width: 60%;
+  margin-left: 5%;
+  margin-top: 3%;
 }
 
-#rpc{
-  margin: -20% 0% 0% 22%;
+#navbardiscord:hover {
+  background-color: #4d4e52;
+  color: black;
 }
+
+#navbardiscord .avatarmini {
+  width: 90%;
+  height: 80%;
+  border-radius: 50%;
+  border: 6px solid transparent;
+}
+
+#navbardiscord h1 {
+  font-size: 13px;
+  color: #fff;
+}
+
+#navbardiscord .clickonme {
+  font-size: 13px;
+  color: #b9bbbe;
+  margin-top: 0%;
+}
+
+.sticky {
+  position: fixed;
+  bottom: 0;
+  width: 180px;
+  height: 7%;
+}
+
+.sticky2 {
+  position: fixed;
+  bottom: 4%;
+}
+

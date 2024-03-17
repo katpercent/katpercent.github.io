@@ -9,7 +9,7 @@
 <body>
     <div class="flex-container">
         <div id="dmProfile" style="flex-basis: 260px;">
-            <button class="tab" onclick="openDiv(event, 'Home')">Main</button>
+            <button class="tab" onclick="openDiv(event, 'Home')">Home</button>
             <!--<button class="tab" onclick="openDiv(event, 'HTB')"><img src="htb.svg" class="pp">Hack The Box</button>
             <button class="tab" onclick="openDiv(event, 'THM')"><img src="thm.png" class="pp">Try Hack Me</button>
             <button class="tab" onclick="openDiv(event, 'Github')"><img src="Git.png" class="pp">Github</button>
@@ -17,9 +17,16 @@
             <button class="tab" onclick="openDiv(event, 'Portfolio')">Portfolio</button>
         </div>
 
-        <div class="dmMessage tabcontent" id="Home" style="flex-basis: 87%">
-            <h3>Hello, i am kat%.</h3>
-            <p>[Insert bio]</p>
+        <div class="dmMessage tabcontent" id="Home" style="flex-basis: 87%;">
+            <div class="partLeft">
+                <h3>Hello, i am kat%.</h3>
+                <p>
+                    I'm a french pentester and developer of 17 years old.<br>
+                    My passion is for the Cybersecurity, Science, Mathematics, Programation and Psychology.<br>
+                    To gain a certain knowledge in the domain of the cybersecurity,<br> i have played on Try Hack Me and a slightly of Hack The Box.<br>
+                    I have done some project in my portfolio to practice Mathematics, Programation and Cybersecurity.<br>
+                </p>
+            </div>
         </div>
 
         <div class="dmMessage tabcontent" id="HTB" style="flex-basis: 87%">
@@ -28,7 +35,7 @@
         </div>
 
         <div class="dmMessage tabcontent" id="THM" style="flex-basis: 87%">
-            <h3>Try Hack ME</h3>
+            <h3>Try Hack Me</h3>
             <p>Nothing here now...</p>
         </div>
         
@@ -42,7 +49,7 @@
             <p>Nothing here now...</p>
         </div>
 
-        <div class="dmMessage tabcontent" id="Portfolio" style="flex-basis: 87%">
+        <div class="dmMessage tabcontent" id="Portfolio" style="flex-basis: 87%;text-align: center;">
             <div id="main">
                 <h3>My Portfolio</h3>
                 <div id="myBtnContainer">

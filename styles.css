@@ -200,7 +200,7 @@ button:hover {
 }
 
 
-/*Accordion*/
+/* flex container */
 
 .flex-container {
   display: flex;
@@ -228,11 +228,9 @@ button:hover {
   width: 180px;
 }
 
-
 .flex-container > .tabcontent {
   background-color: #171720;
   color: white;
-  text-align: center;
   display: none;
 }
 
@@ -260,13 +258,6 @@ h1 {
   float: left;
   width: 45%;
   display: none; /* Hide columns by default */
-}
-
-/* Clear floats after rows */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 /* Content */
@@ -298,4 +289,20 @@ h1 {
 .btn.active {
   background-color: #666;
   color: white;
+}
+
+.partLeft{
+  text-align: left;
+  margin: 50px;
+  width: 40%;
+  padding: 2%;
+  background-color: rgb(13, 23, 44);
+}
+
+.partRight{
+  text-align: right;
+  margin: 50px;
+  width: 40%;
+  padding: 2%;
+  background-color: rgb(13, 23, 44);
 }

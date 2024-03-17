@@ -1,4 +1,6 @@
-body{
+body, html {
+  height: 100%;
+  margin: 0;
   background-color: #313338;
 }
 
@@ -11,8 +13,8 @@ body{
   padding: 0px 0px 20px 0px;
   border-radius: 5px;
   width: 300px;
-  height: 500px;
-  margin: 3%;
+  height: 475px;
+  margin-left: 4%;
 }
 
 .img .banner {
@@ -38,12 +40,12 @@ body{
 
 .info h1 {
   color: #fff;
-  font-size: 13px;
+  font-size: 18px;
   margin-bottom: 5px;
 }
 
 .info p {
-  font-size: 13px;
+  font-size: 18px;
   margin: 5px 0;
 }
 
@@ -62,13 +64,13 @@ body{
 }
 
 .status {
-  font-size: 13px;
+  font-size: 18px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .aboutme {
-  font-size: 13px;
+  font-size: 16px;
   margin-bottom: 6px;
 }
 .h2 {
@@ -149,7 +151,7 @@ button:hover {
 /*NAVBAR SHOW AND HIDE DISCORD PROFILE    /      */
 /*                                       \/      */
 #navbardiscord {
-  margin-left: 5%;
+  margin-left: 100px;
   background-color: #232428;
   border: transparent;
   color: black;
@@ -158,13 +160,9 @@ button:hover {
   display: flex;
 }
 
-.fixed {
-  width: 30%;
-}
 .flex-item {
-  width: 60%;
   margin-left: 5%;
-  margin-top: 3%;
+  margin-top: 10%;
 }
 
 #navbardiscord:hover {
@@ -173,7 +171,7 @@ button:hover {
 }
 
 #navbardiscord .avatarmini {
-  width: 90%;
+  width: 80%;
   height: 80%;
   border-radius: 50%;
   border: 6px solid transparent;
@@ -187,18 +185,117 @@ button:hover {
 #navbardiscord .clickonme {
   font-size: 13px;
   color: #b9bbbe;
-  margin-top: 0%;
 }
 
 .sticky {
   position: fixed;
   bottom: 0;
-  width: 180px;
-  height: 7%;
+  width: 260px;
+  height: 10%;
 }
 
 .sticky2 {
   position: fixed;
-  bottom: 4%;
+  bottom: 12%;
 }
 
+
+/*Accordion*/
+
+.flex-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin-left: 100px;
+  background-color: #2b2d31;
+  align-items: stretch;
+}
+
+#dmProfile > .tab {
+  padding: 10px;
+  height: 5%;
+  width: 100%;
+  background-color: transparent;
+  border-color: transparent;
+  color: #b9bbbe;
+}
+.tab > .pp {
+  height: 50%;
+  margin-right: 6%;
+}
+
+.flex-container > #dmProfile {
+  width: 180px;
+}
+
+
+.flex-container > .tabcontent {
+  background-color: #171720;
+  color: white;
+  text-align: center;
+  display: none;
+}
+
+#main {
+  margin-left: 20px;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 45%;
+  display: none; /* Hide columns by default */
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: black;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Add a grey background color on mouse-over */
+.btn:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background color to the active button */
+.btn.active {
+  background-color: #666;
+  color: white;
+}

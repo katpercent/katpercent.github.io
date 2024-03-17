@@ -4,9 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>KGBCyber</title>
+    <title>kat%</title>
 </head>
 <body>
+    <div class="flex-container">
+        <div id="dmProfile" style="flex-basis: 260px;">
+            <button class="tab" onclick="openDiv(event, 'Home')">Main</button>
+            <!--<button class="tab" onclick="openDiv(event, 'HTB')"><img src="htb.svg" class="pp">Hack The Box</button>
+            <button class="tab" onclick="openDiv(event, 'THM')"><img src="thm.png" class="pp">Try Hack Me</button>
+            <button class="tab" onclick="openDiv(event, 'Github')"><img src="Git.png" class="pp">Github</button>
+            <button class="tab" onclick="openDiv(event, 'Chess')"><img src="Chess.png" class="pp">Chess</button>-->
+            <button class="tab" onclick="openDiv(event, 'Portfolio')">Portfolio</button>
+        </div>
+
+        <div class="dmMessage tabcontent" id="Home" style="flex-basis: 87%">
+            <h3>Hello, i am kat%.</h3>
+            <p>[Insert bio]</p>
+        </div>
+
+        <div class="dmMessage tabcontent" id="HTB" style="flex-basis: 87%">
+            <h3>Hack The Box</h3>
+            <p>Nothing here now...</p>
+        </div>
+
+        <div class="dmMessage tabcontent" id="THM" style="flex-basis: 87%">
+            <h3>Try Hack ME</h3>
+            <p>Nothing here now...</p>
+        </div>
+        
+        <div class="dmMessage tabcontent" id="Github" style="flex-basis: 87%">
+            <h3>Github</h3>
+            <p>Nothing here now...</p>
+        </div>
+        
+        <div class="dmMessage tabcontent" id="Chess" style="flex-basis: 87%">
+            <h3>Chess</h3>
+            <p>Nothing here now...</p>
+        </div>
+
+        <div class="dmMessage tabcontent" id="Portfolio" style="flex-basis: 87%">
+            <div id="main">
+                <h3>My Portfolio</h3>
+                <div id="myBtnContainer">
+                    <button class="btn active" onclick="filterSelection('all')">Show all</button>
+                    <button class="btn" onclick="filterSelection('python')">Python</button>
+                    <button class="btn" onclick="filterSelection('cpp')">C++</button>
+                    <button class="btn" onclick="filterSelection('others')">Others</button>
+                </div>
+                <div class="row">
+                    <div class="column python">
+                    <div class="content">
+                        <img src="3DGameEngine.jpg" alt="3DGameEngine" style="width:100%;">
+                        <h4>3D Game Engine</h4>
+                        <p>The game engine providing a foundation for game creation.</p>
+                        <a href="https://github.com/katpercent/3DGameEnginePython">link</a>
+                    </div>
+                    </div>
+
+                    <div class="column others">
+                    <div class="content">
+                        <img src="MinecraftCalculator.png" alt="MinecraftCalculator" style="width:100%;">
+                        <h4>Minecraft Calculator</h4>
+                        <p>A minecraft project that made me gain a better understanding of the binary</p>
+                        <a href="https://github.com/katpercent/MinecraftCalculator">link</a>
+                    </div>
+                    </div>
+
+                    <div class="column cpp">
+                    <div class="content">
+                        <h4>InjectShellCodeWinAPI</h4>
+                        <p>C++ project who inject a shellcode in the memory and run it.</p>
+                        <a href="https://github.com/katpercent/InjectShellCodeWinAPI">link</a>
+                    </div>
+                    </div>
+                    <div class="column python">
+                    <div class="content">
+                        <h4>Mr. Robot</h4>
+                        <p>A Discord bot</p>
+                        <a href="https://github.com/katpercent/Mr.Robot">link</a>
+                    </div>
+                    </div>
+                
+                    
+                    <div class="column python">
+                    <div class="content">
+                        <h4>pyCalc</h4>
+                        <p>Host a server on python</p>
+                        <a href="https://github.com/katpercent/pycalc">link</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <div class="profile sticky2" id="showhide">
         <div class="img">
             <img class="banner" src="banner.gif" alt="Banner Image">
@@ -20,23 +112,24 @@
             <a href="https://www.chess.com/member/overdoseludo" target="_blank"><div id="Chess"><button class="button"></button></div></a>
         </div>
         <div class="info">
-            <h1>Др К.Г.Б</h1>
-            <p class="username">k.g.b</p>
-            <p class="pronoun">INTJ who <3 Science/Cybersec/Psychology</p>
-            <p class="status">Hatred is born when people gather together...</p>
+            <h1>kat%</h1>
+            <p class="username">katpercent</p>
+            <p class="pronoun"></p>
+            <p class="status">(づ｡◕‿◕｡)づ ⁺˚*･༓☾<3</p>
             <div class="h2"><strong>ABOUT ME</strong></div>
-            <div class="aboutme">
-                Ingénieur à l'institut des FDP au Clair de Lune.<br>
-                Education is an admirable thing, yet worth<br>recalling that valuable knowledge isn't taught.<br>
-                People interest me, conversations don’t.</div>
-            <div class="h2"><strong>DISCORD MEMBER SINCE</strong></div>
-            <div class="aboutme">Apr 5, 2018</div>
+                <div class="aboutme">
+                17 yo developer and pentester<br>
+                <div class="h2"><strong>DISCORD MEMBER SINCE</strong></div>
+                <div class="aboutme">Apr 5, 2018</div>
+                </div>
         </div>
     </div>
+
     <div onclick="hideshow()" id="navbardiscord" class="sticky">
-        <div class="fixed"><img class="avatarmini" src="avatar.jpg" alt="Profile Avatar"></div>
-        <div class="flex-item"><h1>Др К.Г.Б</h1><p class="clickonme">Click on me...</p></div>
-      </div>
+        <img class="avatarmini" src="avatar.jpg" alt="Profile Avatar" style="flex-basis: 100px;margin-left: 10%;">
+        <div class="flex-item" style="flex-basis: 160px"><h1>kat%</h1><p class="clickonme">Click on me...</p></div>
+    </div>
+
     <script>
         window.onload=function(){
             document.getElementById("showhide").style.display='none';
@@ -47,6 +140,77 @@
             } else {
                 document.getElementById("showhide").style.display = "none";
             }
+        }
+
+        function openDiv(evt, id) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tab");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the link that opened the tab
+        document.getElementById(id).style.display = "block";
+        evt.currentTarget.className += " active";
+        }
+
+
+
+        filterSelection("all") // Execute the function and show all columns
+        function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("column");
+        if (c == "all") c = "";
+        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+        }
+
+        // Show filtered elements
+        function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+            }
+        }
+        }
+
+        // Hide elements that are not selected
+        function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function(){
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
         }
     </script>
 </body>

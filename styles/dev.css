@@ -1,0 +1,263 @@
+
+@font-face {
+  font-family: 'CustomFont'; /* Choose a name for the font */
+  src: url('../fonts/font.ttf') format('truetype'); /* Adjust path */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'CustomFont', sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: white;
+  text-align: center;
+}
+
+@font-face {
+  font-family: 'CustomFont'; /* Choose a name for the font */
+  src: url('../fonts/font.ttf') format('truetype'); /* Adjust path */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Navbar container */
+.header {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.0);
+    height: 100px;
+    z-index: 11; 
+    overflow: hidden;
+}
+
+.header.disabled {
+  pointer-events: none;
+}
+
+.header.disabled .menu-icon {
+  pointer-events: all; /* Réactive le clic uniquement sur le bouton */
+}
+
+/* Logo section */
+.logo {
+
+}
+
+/* Links section */
+.header-middle {
+  margin-left: 50px;
+  display: flex;
+  gap: 10px;
+}
+
+
+
+
+
+/* Style for individual links */
+.header-middle a {
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(to right, black 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.3s ease-in-out;
+}
+
+/* Create an underline using ::after */
+.header-middle a::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -2px; /* Adjust position if needed */
+  width: 0%;
+  height: 1px;
+  background: white;
+  transition: width 0.3s ease-in-out;
+}
+
+/* On hover, expand underline from left to right */
+.header-middle a:hover::after {
+  content: "";
+  width: 100%;
+}
+
+/* On mouse leave, shrink underline from left to right */
+.header-middle a:not(:hover)::after {
+  content: "";
+  width: 0%;
+  height: 1px;
+  bottom: -2px;
+  left: 100%;
+  background-color: white;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.space {
+  width: 10px;
+}
+
+.menu-icon {
+  z-index: 100;
+  width: 16px;
+}
+
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;  /* Start with full width */
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0s linear 0.4s;
+    z-index: 12;
+}
+
+#overlay.active {
+    width: calc(100vw - 350px);  /* Shrinks when menu is open */
+    opacity: 1;
+    visibility: visible;
+    transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+
+
+/* MENU  */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 250px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 75px 50px 0px 50px;
+  transition: right 0.4s ease-in-out;
+  z-index: 10;
+}
+
+.bar {
+  width: 100%;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease-in-out;
+}
+
+/* links Menu */
+.side-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    height: 12.5px;
+    margin-top: 12.5px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: end;
+    transition: background 1.3s ease-in-out;
+    z-index: 12;
+}
+
+.side-menu a:hover {
+    color: #333;
+}
+
+.side-menu.open {
+  z-index: 10;
+}
+
+.interline {
+  height: 1px;
+  width: 100%;
+  background-color: #444;
+}
+
+/* ANIMATION */
+.menu-icon.open .bar:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+}
+
+.menu-icon.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open .bar:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 700px;
+    padding: 20px;
+}
+
+/* Titre principal */
+h1 {
+    font-size: 2.5rem;
+}
+
+/* Texte d'information */
+p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+/* Animation de chargement */
+.loader {
+    margin: 20px auto;
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Animation du spinner */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Section contact */
+.contact {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+/* Lien de contact */
+.contact a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .side-menu {
+        width: 100%; /* Make menu full screen on mobile */
+    }
+}

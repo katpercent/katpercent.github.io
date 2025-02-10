@@ -1,0 +1,286 @@
+@font-face {
+  font-family: 'CustomFont'; /* Choose a name for the font */
+  src: url('../fonts/font.ttf') format('truetype'); /* Adjust path */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'CustomFont', sans-serif;
+
+}
+
+
+
+/* Navbar container */
+.header {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.0);
+    height: 100px;
+    z-index: 11; 
+    overflow: hidden;
+}
+
+.header.disabled {
+  pointer-events: none;
+}
+
+.header.disabled .menu-icon {
+  pointer-events: all; /* Réactive le clic uniquement sur le bouton */
+}
+
+/* Logo section */
+.logo {
+
+}
+
+/* Links section */
+.header-middle {
+  margin-left: 50px;
+  display: flex;
+  gap: 10px;
+}
+
+
+
+
+
+/* Style for individual links */
+.header-middle a {
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(to right, black 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.3s ease-in-out;
+}
+
+/* Create an underline using ::after */
+.header-middle a::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: white;
+  transition: width 0.3s ease-in-out;
+}
+
+/* On hover, expand underline from left to right */
+.header-middle a:hover::after {
+  content: "";
+  width: 100%;
+}
+
+/* On mouse leave, shrink underline from left to right */
+.header-middle a:not(:hover)::after {
+  content: "";
+  width: 0%;
+  height: 1px;
+  bottom: -2px;
+  left: 100%;
+  background-color: white;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.space {
+  width: 10px;
+}
+
+.menu-icon {
+  z-index: 100;
+  width: 16px;
+}
+
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;  /* Start with full width */
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0s linear 0.4s;
+    z-index: 12;
+}
+
+#overlay.active {
+    width: calc(100vw - 350px);  /* Shrinks when menu is open */
+    opacity: 1;
+    visibility: visible;
+    transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+
+
+/* MENU  */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 250px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 75px 50px 0px 50px;
+  transition: right 0.4s ease-in-out;
+  z-index: 10;
+}
+
+.bar {
+  width: 100%;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease-in-out;
+}
+
+/* links Menu */
+.side-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    height: 12.5px;
+    margin-top: 12.5px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: end;
+    transition: background 1.3s ease-in-out;
+    z-index: 12;
+}
+
+.side-menu a:hover {
+    color: #333;
+}
+
+.side-menu.open {
+  z-index: 10;
+}
+
+.interline {
+  height: 1px;
+  width: 100%;
+  background-color: #444;
+}
+
+/* ANIMATION */
+.menu-icon.open .bar:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+}
+
+.menu-icon.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open .bar:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+.section.one::before {
+   background-image: url('../images/3DGameEngine.jpg');
+}
+.section.two::before {
+  background-image: url('../images/BKaOS.jpg');
+}
+
+.minus {
+  color: #f2f2f2;
+  text-decoration: bold;
+  font-size: 25px;
+  position: absolute;
+  top: 72vh;
+  text-align: left;
+}
+
+.title {
+  color: #f2f2f2;
+  text-decoration: bold;
+  font-size: 60px;
+  position: absolute;
+  top: 70vh;
+  text-align: left;
+}
+
+.btnn {
+  position: relative;          /* Needed for the absolute positioning of the pseudo-element */
+  padding: 10px 20px;          /* Adjust as needed */
+  color: #000;                 /* Initial text color */
+  background: transparent;     /* Transparent background */
+  border: 2px solid #000;      /* Optional border */
+  text-decoration: none;       /* Remove underline from link */
+  overflow: hidden;            /* Hide the sliding background when it’s off view */
+  transition: color 0.3s ease; /* Smooth text color transition */
+  width: 100px;
+  text-align: center;
+  height: 15px;
+  top: 80vh;
+}
+
+/* Create the sliding black background */
+.btnn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  /* Start with the pseudo-element positioned below the button */
+  top: 100%;
+  z-index: -1;                /* Place it behind the text */
+  transition: top 0.3s ease;   /* Animate the slide */
+}
+
+/* On hover, bring the pseudo-element up to cover the button */
+.btnn:hover::before {
+  top: 0;
+}
+
+/* Also change the text color on hover */
+.btnn:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+    .header-middle {
+        display: none; /* Hide navigation links on mobile */
+    }
+    .menu-icon {
+        display: block;
+    }
+    .side-menu {
+        width: 100%; /* Make menu full screen on mobile */
+    }
+}

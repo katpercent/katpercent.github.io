@@ -56,3 +56,13 @@ function toggleMenu() {
 }
 
 document.getElementById("overlay").addEventListener("click", toggleMenu);
+
+document.addEventListener("scroll", function () {
+    let arrow = document.getElementById("arrow");
+    if (window.scrollY > 50) { // Cache la flèche après un léger scroll
+        arrow.classList.add("hidden");
+    } else {
+        arrow.classList.remove("hidden");
+    }
+});
+

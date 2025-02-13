@@ -24,13 +24,6 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-@font-face {
-  font-family: 'CustomFont'; /* Choose a name for the font */
-  src: url('../fonts/font.ttf') format('truetype'); /* Adjust path */
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* Navbar container */
 .header {
     display: flex;
@@ -54,21 +47,12 @@ body::-webkit-scrollbar {
   pointer-events: all; /* Réactive le clic uniquement sur le bouton */
 }
 
-/* Logo section */
-.logo {
-
-}
-
 /* Links section */
 .header-middle {
   margin-left: 50px;
   display: flex;
   gap: 10px;
 }
-
-
-
-
 
 /* Style for individual links */
 .header-middle a {

@@ -35,9 +35,9 @@ function adjustTextPosition() {
     menuIcon.style.marginLeft = `${menuScaledValue}px`;
 }
 
-window.addEventListener('resize', adjustTextPosition);
+window.addEventListener("resize", adjustTextPosition);
 adjustTextPosition();
-
+document.addEventListener("scroll", adjustTextPosition);
 
 function toggleMenu() {
     let menu = document.getElementById("sideMenu");

@@ -1,0 +1,343 @@
+@font-face {
+  font-family: 'CustomFont'; /* Choose a name for the font */
+  src: url('../fonts/font.ttf') format('truetype'); /* Adjust path */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Navbar container */
+.header {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.0);
+    height: 100px;
+    z-index: 11; 
+    overflow: hidden;
+}
+
+.header.disabled {
+  pointer-events: none;
+}
+
+.header.disabled .menu-icon {
+  pointer-events: all; /* Réactive le clic uniquement sur le bouton */
+}
+
+/* Links section */
+.header-middle {
+  margin-left: 50px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Style for individual links */
+.header-middle a {
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: 'CustomFont', sans-serif;
+  font-weight: bold;
+  background: linear-gradient(to right, black 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.3s ease-in-out;
+}
+
+/* Create an underline using ::after */
+.header-middle a::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: white;
+  transition: width 0.3s ease-in-out;
+}
+
+/* On hover, expand underline from left to right */
+.header-middle a:hover::after {
+  content: "";
+  width: 100%;
+}
+
+/* On mouse leave, shrink underline from left to right */
+.header-middle a:not(:hover)::after {
+  content: "";
+  width: 0%;
+  height: 1px;
+  bottom: -2px;
+  left: 100%;
+  background-color: white;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.space {
+  width: 10px;
+}
+
+.menu-icon {
+  z-index: 100;
+  width: 16px;
+}
+
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;  /* Start with full width */
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0s linear 0.4s;
+    z-index: 12;
+}
+
+#overlay.active {
+    width: calc(100vw - 350px);  /* Shrinks when menu is open */
+    opacity: 1;
+    visibility: visible;
+    transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+
+
+/* MENU  */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 250px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 75px 50px 0px 50px;
+  transition: right 0.4s ease-in-out;
+  z-index: 10;
+}
+
+.bar {
+  width: 100%;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease-in-out;
+}
+
+/* links Menu */
+.side-menu a {
+  font-family: 'CustomFont', sans-serif;
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  height: 12.5px;
+  margin-top: 12.5px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: end;
+  transition: background 1.3s ease-in-out;
+  z-index: 12;
+}
+
+.side-menu a:hover {
+    color: #333;
+}
+
+.side-menu.open {
+  z-index: 10;
+}
+
+.interline {
+  height: 1px;
+  width: 100%;
+  background-color: #444;
+}
+
+/* ANIMATION */
+.menu-icon.open .bar:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+}
+
+.menu-icon.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open .bar:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+.section.one::before {
+   background-color: black;
+}
+.section.two {
+  height: 300vh;
+  position: relative;
+  background-color: black;
+}
+
+#gameContainer {
+  position: sticky;
+  top: 0;
+  margin-left: 50vw;
+  width: 100%;
+  height: 100vh;
+}
+
+.text-left {
+  position: absolute;
+  width: 50vw;
+  font-size: 15px;
+  color: white;
+}
+
+.text-left.one {
+  top: 25%; /* Milieu de la première moitié */
+}
+
+.text-left.two {
+  top: 75%; /* Milieu de la deuxième moitié */
+}
+
+.section.three::before {
+  background-image: url('../images/3DGameEngine.jpg');
+}
+
+
+
+.titlxy {
+  font-family: 'CustomFont', sans-serif;
+  color: #f2f2f2;
+  text-decoration: bold;
+  font-size: 60px;
+  align-self: flex-start;
+}
+
+.minus {
+  font-family: 'CustomFont', sans-serif;
+  color: #f2f2f2;
+  text-decoration: bold;
+  font-size: 25px;
+  position: absolute;
+  top: 72vh;
+  text-align: left;
+}
+
+.minusx {
+  font-family: 'CustomFont', sans-serif;
+  color: #f2f2f2;
+  text-decoration: bold;
+  font-size: 20px;
+  position: absolute;
+}
+
+.title {
+  font-family: 'CustomFont', sans-serif;
+  color: #f2f2f2;
+  text-decoration: bold;
+  font-size: 60px;
+  position: absolute;
+  top: 70vh;
+  text-align: left;
+}
+
+
+#gameContainer {
+    width: 50vw;
+    height: 50vh;
+    top: 20vh;
+    margin-top: 70vh;
+}
+
+#textLeft {
+  width: 50vw;
+  height: 80vh;
+  margin-top: 10vh;
+
+}
+
+.play {
+  width: 70px;
+  height: 70px;
+  margin-top: calc(50vh - 35px);
+  margin-left: calc(50vw - 35px);
+}
+
+
+@keyframes float {
+    0% {
+        transform: translate(-50%, -50px) rotate(-45deg);
+    }
+
+    100% {
+        transform: translate(-50%, -20px) rotate(-45deg);
+    }
+}
+
+.arrow-down {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: translateX(-50%) rotate(-45deg);
+    animation: float 2s infinite ease-in-out;
+    transition: opacity 0.3s;
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+
+@media (max-width: 768px) {
+    .header-middle {
+        display: none; /* Hide navigation links on mobile */
+    }
+    .menu-icon {
+        display: block;
+    }
+    .side-menu {
+        width: 100%; /* Make menu full screen on mobile */
+    }
+}
+

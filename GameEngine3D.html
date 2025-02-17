@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/GameEngine3D.css?v=2">
+    <title>kat%</title>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@latest/build/three.module.js",
+            "three/examples/jsm/loaders/OBJLoader": "https://unpkg.com/three@latest/examples/jsm/loaders/OBJLoader.js"
+        }
+    }
+    </script>
+</head>
+<body onload="adjustTextPosition()">
+    <div id="overlay"></div>
+    <!-- HEADER -->
+    <div class="header">
+        <a class="logo" href="index.html">
+            <img src="./images/logo.svg" alt="Logo">
+        </a>
+        <div class="header-middle">
+            <a href="#">BKRenderingPipeline</a>
+            <div class="space"></div>
+            <a href="dev.html">BKaOS</a>
+            <div class="space"></div>
+            <a href="dev.html">BKrypt</a>
+        </div>
+        <!-- Menu Icon with animation -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar" style="margin-top:0px;"></div>
+            <div class="bar" style="margin-top:2px;"></div>
+            <div class="bar" style="margin-top:2px;"></div>
+        </div>
+    </div>
+
+    <!-- MENU DÉROULANT -->
+    <div class="side-menu" id="sideMenu">
+        <a href="dev.html">MISSION</a>
+        <div class="interline"></div>
+        <a href="dev.html">LAUNCHES</a>
+        <div class="interline"></div>
+        <a href="dev.html">UPDATES</a>
+        <div class="interline"></div>
+        <a href="dev.html">DEVELOPERS</a>
+        <div class="interline"></div>
+    </div>
+
+    <section class="section one">
+        <h1 class="titlxy">BKRenderingPipeline</h1>
+        <a class="minusx">The game engine providing a foundation for game creation</a>
+        <div class="arrow-down" id="arrow"></div>
+    </section>
+    <section class="section two">
+        <div class="text-left one"><strong>Game Engine 3D – Project Overview</strong><br><br>Game Engine 3D is a powerful and evolving game development engine designed to provide a solid foundation for creating immersive 3D experiences. Currently in its early development phase, the engine focuses on performance optimization, realistic rendering, and essential game development tools.<br><br><strong>Version 0.1 – Core Features</strong><br><br>
+
+The initial version (V0.1) lays the groundwork with fundamental 3D rendering and physics capabilities:<br>
+
+    Optimized Performance – Implementation of parallel computing for enhanced processing efficiency.<br>
+    Camera System – Dynamic camera movement for seamless navigation.<br>
+    3D Mathematics – Transformation matrices for object positioning and rotation.<br>
+    Illumination & Lighting – Basic lighting models for scene realism.<br>
+    Rasterization – Efficient rendering pipeline for image generation.<br>
+    Shadow Mapping – Shadow rendering using rasterization techniques.<br>
+    Textures & Materials – Texture mapping for detailed surfaces.<br>
+    Model Loading – Blender model support for easy asset integration.<br>
+    Physics & Collision – Basic physics engine with collision detection.
+
+    <br><br><strong>Version 0.23 – Advanced Features</strong><br><br>
+
+    The second milestone (V0.23) introduces essential tools for level design and UI configuration:<br>
+
+    Game Editor – Integrated mapping tool for level creation.<br>
+    Customizable Menu – UI for viewing and modifying rendering settings.<br>
+    Toolbox – Essential utilities for object and scene manipulation.<br>
+    View Switching – Toggle between different perspectives with entities.<br>
+    Escape Menu – Centralized game configuration settings.<br>
+    View Frustum Display – Visualization of an entity’s camera frustum or bounding box.<br><br><strong>Future Roadmap</strong><br>
+
+With many more features in development, Game Engine 3D is evolving towards a fully functional and user-friendly engine for game creators. Future updates will focus on improving physics, AI integration, networking, and graphical enhancements.</div>
+        <div id="gameContainer" class="sticky"></div>
+        <div class="text-left two"><strong>BKRenderEngine – High-Performance 2D Graphics Library</strong><br><br>BKRenderEngine is a powerful, cross-platform 2D graphics library designed for developers seeking efficiency, flexibility, and performance. Whether you're building games, graphical tools, or simulations, this engine provides the essential tools to bring your creative vision to life.<br><br><strong>Core Objectives</strong><br><br>Multi-Platform Compatibility<br>Seamlessly runs on Windows, macOS, and Linux, ensuring broad accessibility.<br><br>Built-in 3D to 2D Rendering<br>Convert 3D scenes into 2D views for hybrid workflows or simplified rendering.<br><br>Parallel Computing Optimization<br>Utilizes multi-core processors for improved performance and efficient handling of complex calculations.<br><br>Feature Set<br><br>🖥️ Window Management<br>Create, resize, and manage windows with customizable properties.<br>Full-screen and multi-window support for flexible application design.<br><br>🎨 2D Drawing Capabilities<br>Render basic shapes like lines, rectangles, circles, and polygons.<br>Texture mapping and image rendering for enhanced visual output.<br><br>🖱️ Interactive Event Handling<br>Manage keyboard and mouse inputs for seamless user interaction. Event-driven design simplifies input management.<br><br>🚀 High-Performance Rendering<br>Optimized rendering pipeline for smooth frame rates and low latency. Low resource consumption, ensuring compatibility with a wide range of system configurations.</div>
+    </section>
+    <section class="section three" >
+        <img src="images/play.png" onclick="openPage('dev.html')" class="play">
+        <a class="minus">VIDEO</a>
+        <h1 class="title">GameEngine3D in action</h1>
+    </section>
+
+    <script src="./scripts/GameEngine3D.js"></script>
+    <script type="module" src="./scripts/MiniGameEngine3D.js"></script>
+    
+
+</body>
+</html>
+

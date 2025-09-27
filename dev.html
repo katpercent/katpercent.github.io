@@ -8,43 +8,45 @@
 </head>
 <body onload="adjustTextPosition()">
     <div id="overlay"></div>
+
     <!-- HEADER -->
-    <div class="header">
-        <a class="logo" href="index.html">
-            <img src="./images/logo.svg" alt="Logo">
-        </a>
-        <div class="header-middle">
-            <a href="GameEngine3D.html">BKRenderingPipeline</a>
-            <div class="space"></div>
-            <a href="dev.html">BKaOS</a>
-            <div class="space"></div>
-            <a href="dev.html">BKrypt</a>
-        </div>
-        <!-- Menu Icon with animation -->
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div class="bar" style="margin-top:0px;"></div>
-            <div class="bar" style="margin-top:2px;"></div>
-            <div class="bar" style="margin-top:2px;"></div>
-        </div>
+    <div class="header" id="header">
+      <a class="logo" href="index.html">
+        <img id="logo" src="./images/logo.svg" alt="Logo">
+      </a>
+      <div class="header-middle">
+        <a href="https://github.com/katpercent/BKGameEngine">BKGameEngine</a>
+        <div class="space"></div>
+        <a href="https://github.com/katpercent/BlacKhaOS">BlacKhaOS</a>
+        <div class="space"></div>
+        <a href="https://github.com/katpercent/BlacKipher">BlacKipher</a>
+        <div class="space"></div>
+        <a href="https://github.com/katpercent/BKompiler">BKompiler</a>
+      </div>
+      <!-- Menu Icon with animation -->
+      <div class="menu-icon" id="menuIcon">
+        <div class="bar" style="margin-top:0px;"></div>
+        <div class="bar" style="margin-top:2px;"></div>
+        <div class="bar" style="margin-top:2px;"></div>
+      </div>
     </div>
 
     <!-- MENU DÉROULANT -->
     <div class="side-menu" id="sideMenu">
-        <a href="dev.html">MISSION</a>
-        <div class="interline"></div>
-        <a href="dev.html">LAUNCHES</a>
-        <div class="interline"></div>
-        <a href="dev.html">UPDATES</a>
-        <div class="interline"></div>
-        <a href="dev.html">DEVELOPERS</a>
-        <div class="interline"></div>
+      <a href="dev.html">MISSION</a>
+      <div class="interline"></div>
+      <a href="dev.html">LAUNCHES</a>
+      <div class="interline"></div>
+      <a href="dev.html">UPDATES</a>
+      <div class="interline"></div>
+      <a href="dev.html">DEVELOPERS</a>
+      <div class="interline"></div>
     </div>
 
     <div class="container">
         <h1>🚧 Project in Development 🚧</h1>
         <p>We are working hard to give you something amazing<br>Stay tuned</p>
         <div class="loader"></div>
-        <p class="contact"><a href="mailto:katpercent@pm.me">Contact</a></p>
     </div>
     <script src="./scripts/scripts.js"></script>
 </body>

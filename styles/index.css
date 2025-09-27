@@ -1,6 +1,9 @@
+/* ==========================
+   1. FONTS & RESET
+   ========================== */
 @font-face {
-  font-family: 'CustomFont'; /* Choose a name for the font */
-  src: url('../fonts/font.ttf') format('truetype'); /* Adjust path */
+  font-family: 'CustomFont';
+  src: url('../fonts/font.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -16,155 +19,168 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-/* Navbar container */
+/* ==========================
+   2. GLOBAL SCROLL / SNAP
+   ========================== */
+html, body {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+/* ==========================
+   3. HEADER & NAVBAR
+   ========================== */
+
+/* --- Header container --- */
 .header {
-    display: flex;
-    justify-content: flex-start; /* Align items to the left */
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.0);
-    height: 100px;
-    z-index: 11; 
-    overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: transparent;
+  z-index: 11;
+  overflow: hidden;
+  transition: opacity 0.1s ease, transform 0.2s ease;
+}
+
+/* header caché pendant transition */
+.header.hidden {
+  opacity: 0;
+  transform: translateY(-30px); /* petit slide vers le haut */
+  pointer-events: none;
 }
 
 .header.disabled {
   pointer-events: none;
 }
-
 .header.disabled .menu-icon {
-  pointer-events: all; /* Réactive le clic uniquement sur le bouton */
+  pointer-events: all;
 }
 
-/* Links section */
+/* --- Links container --- */
 .header-middle {
   margin-left: 50px;
   display: flex;
   gap: 10px;
 }
 
-/* Style for individual links */
+/* --- Nav links --- */
 .header-middle a {
   position: relative;
   text-decoration: none;
   font-size: 20px;
   font-weight: bold;
-  background: linear-gradient(to right, black 50%, white 50%);
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: background-position 0.3s ease-in-out;
+  color: white; /* par défaut */
+  transition: color 0.3s ease;
 }
 
-/* Create an underline using ::after */
 .header-middle a::after {
   content: "";
   position: absolute;
-  left: 0px;
   bottom: -2px;
+  left: 0;
   width: 0%;
   height: 1px;
-  background: white;
+  background: currentColor;
   transition: width 0.3s ease-in-out;
 }
 
-/* On hover, expand underline from left to right */
 .header-middle a:hover::after {
-  content: "";
   width: 100%;
 }
 
-/* On mouse leave, shrink underline from left to right */
 .header-middle a:not(:hover)::after {
-  content: "";
   width: 0%;
-  height: 1px;
-  bottom: -2px;
   left: 100%;
-  background-color: white;
   transition: width 0.3s ease, left 0.3s ease;
 }
 
-.space {
-  width: 10px;
-}
+.space { width: 10px; }
 
+/* --- Burger menu --- */
 .menu-icon {
   z-index: 100;
   width: 16px;
-}
-
-
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;  /* Start with full width */
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0s linear 0.4s;
-    z-index: 12;
-}
-
-#overlay.active {
-    width: calc(100vw - 350px);  /* Shrinks when menu is open */
-    opacity: 1;
-    visibility: visible;
-    transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
-}
-
-
-
-/* MENU  */
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -350px;
-  width: 250px;
-  height: 100vh;
-  background: rgba(0, 0, 0, 1);
-  display: flex;
-  flex-direction: column;
-  padding: 75px 50px 0px 50px;
-  transition: right 0.4s ease-in-out;
-  z-index: 10;
+  cursor: pointer;
 }
 
 .bar {
   width: 100%;
   height: 2px;
-  background: white;
-  transition: all 0.3s ease-in-out;
+  background: white; /* par défaut */
+  transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* links Menu */
-.side-menu a {
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
-    width: 100%;
-    height: 12.5px;
-    margin-top: 12.5px;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: end;
-    transition: background 1.3s ease-in-out;
-    z-index: 12;
+.menu-icon.open .bar:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+.menu-icon.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-icon.open .bar:nth-child(3) {
+  transform: translateY(-4px) rotate(-45deg);
 }
 
-.side-menu a:hover {
-    color: #333;
+/* --- Dark mode (sections claires) --- */
+.header.dark .header-middle a {
+  color: black;
 }
 
-.side-menu.open {
+.header.dark .bar {
+  background: black;
+}
+
+/* ==========================
+   4. OVERLAY & SIDE MENU
+   ========================== */
+#overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: width 0.4s ease-in-out,
+              opacity 0.4s ease-in-out,
+              visibility 0s linear 0.4s;
+  z-index: 12;
+}
+#overlay.active {
+  width: calc(100vw - 350px);
+  opacity: 1;
+  visibility: visible;
+  transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0; right: -350px;
+  width: 250px;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  padding: 75px 50px 0;
+  transition: right 0.4s ease-in-out;
   z-index: 10;
 }
+.side-menu.open { z-index: 10; }
+
+.side-menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  margin: 12.5px 0 15px;
+  display: flex;
+  justify-content: end;
+  transition: color 0.3s ease-in-out;
+}
+.side-menu a:hover { color: #333; }
 
 .interline {
   height: 1px;
@@ -172,112 +188,136 @@ body::-webkit-scrollbar {
   background-color: #444;
 }
 
-/* ANIMATION */
-.menu-icon.open .bar:nth-child(1) {
-    transform: translateY(4px) rotate(45deg);
-}
 
-.menu-icon.open .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-icon.open .bar:nth-child(3) {
-    transform: translateY(-4px) rotate(-45deg);
-}
-
+/* ==========================
+   5. SECTIONS & BACKGROUNDS
+   ========================== */
 .section {
   height: 100vh;
   display: flex;
   position: relative;
+  scroll-snap-align: start;
 }
+
 .section::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   z-index: -1;
 }
-.section.one::before {
-   background-image: url('../images/3DGameEngine.jpg');
-}
-.section.two::before {
-  background-image: url('../images/BKaOS.jpg');
+
+.planet {
+  position: absolute; /* au lieu de fixed */
+  top: 0; left: 0;
+  width: 100vw;
+  height: 500vh;
+  z-index: -1;
+  background: radial-gradient(
+    circle 400vh at 110% 50%, /* collée en haut */
+    #ffffff 0%,
+    #ffffff 60%,
+    #111111 77%,
+#000000 100%
+  );
+  animation: planetPulse 8s ease-in-out infinite;
 }
 
-.section.three::before {
-  background-image: url('../images/cyber.jpg');
+
+
+
+@keyframes planetPulse {
+  0%, 100% {
+    background-size: 100% 100%;
+  }
+  50% {
+    background-size: 110% 110%;
+  }
+}
+
+/* Section 1 : Game Engine */
+.section.one::before {
+  background-image: url('../images/BKGameEngine3D.bmp');
+}
+
+/* Section 2 : BlacKipher (E2EE) */
+.section.two::before {
+  background-image: url('../images/demo.bmp');
+}
+
+/* ==========================
+   6. TEXT & BUTTONS
+   ========================== */
+.white_text {
+  color: #f2f2f2;
+}
+
+.black_text {
+  color: #020202;
 }
 
 .minus {
-  color: #f2f2f2;
-  text-decoration: bold;
+  font-weight: bold;
   font-size: 25px;
   position: absolute;
   top: 72vh;
   text-align: left;
 }
-
 .title {
-  color: #f2f2f2;
-  text-decoration: bold;
+  font-weight: bold;
   font-size: 60px;
   position: absolute;
   top: 70vh;
   text-align: left;
 }
 
-.btnn {
-  position: relative;          /* Needed for the absolute positioning of the pseudo-element */
-  padding: 10px 20px;          /* Adjust as needed */
-  color: #000;                 /* Initial text color */
-  background: transparent;     /* Transparent background */
-  border: 2px solid #000;      /* Optional border */
-  text-decoration: none;       /* Remove underline from link */
-  overflow: hidden;            /* Hide the sliding background when it’s off view */
-  transition: color 0.3s ease; /* Smooth text color transition */
-  width: 100px;
-  text-align: center;
-  height: 15px;
-  top: 84vh;
+.description {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  position: absolute;
+  top: 79vh;
+  text-align: left;
 }
 
-/* Create the sliding black background */
+.btnn {
+  position: relative;
+  top: 84vh;
+  display: inline-block;
+  width: 100px;
+  height: 15px;
+  padding: 10px 20px;
+  text-align: center;
+  color: #000;
+  background: transparent;
+  border: 2px solid #000;
+  text-decoration: none;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
 .btnn::before {
   content: "";
   position: absolute;
   left: 0;
+  top: 100%;
   width: 100%;
   height: 100%;
   background: black;
-  /* Start with the pseudo-element positioned below the button */
-  top: 100%;
-  z-index: -1;                /* Place it behind the text */
-  transition: top 0.3s ease;   /* Animate the slide */
+  z-index: -1;
+  transition: top 0.3s ease;
 }
+.btnn:hover::before { top: 0; }
+.btnn:hover { color: #fff; }
 
-/* On hover, bring the pseudo-element up to cover the button */
-.btnn:hover::before {
-  top: 0;
-}
-
-/* Also change the text color on hover */
-.btnn:hover {
-  color: #fff;
-}
-
-
+/* ==========================
+   7. ANIMATIONS
+   ========================== */
 @keyframes float {
-    0% {
-        transform: translate(-50%, -50px) rotate(-45deg);
-    }
-
-    100% {
-        transform: translate(-50%, -20px) rotate(-45deg);
-    }
+  0%   { transform: translate(-50%, -50px) rotate(-45deg); }
+  100% { transform: translate(-50%, -20px) rotate(-45deg); }
 }
 
 .arrow-down {
@@ -286,8 +326,8 @@ body::-webkit-scrollbar {
     left: 50%;
     width: 20px;
     height: 20px;
-    border-left: 2px solid white;
-    border-bottom: 2px solid white;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
     transform: translateX(-50%) rotate(-45deg);
     animation: float 2s infinite ease-in-out;
     transition: opacity 0.3s;
@@ -298,15 +338,23 @@ body::-webkit-scrollbar {
     overflow: hidden;
 }
 
-
-@media (max-width: 768px) {
-    .header-middle {
-        display: none; /* Hide navigation links on mobile */
-    }
-    .menu-icon {
-        display: block;
-    }
-    .side-menu {
-        width: 100%; /* Make menu full screen on mobile */
-    }
+/* Fade-in effect */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
 }
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================
+   8. RESPONSIVE
+   ========================== */
+@media (max-width: 768px) {
+  .header-middle { display: none; }
+  .menu-icon { display: block; }
+  .side-menu { width: 100%; }
+}
+

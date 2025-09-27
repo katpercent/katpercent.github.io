@@ -108,10 +108,18 @@ html, body {
   cursor: pointer;
 }
 
+.white_bg {
+  background: #f2f2f2;
+}
+
+.dark_bg {
+  background: #020202;
+}
+
 .bar {
   width: 100%;
   height: 2px;
-  background: white; /* par défaut */
+  background: white;
   transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -130,7 +138,7 @@ html, body {
   color: black;
 }
 
-.header.dark .bar {
+.header.dark .bar{
   background: black;
 }
 
@@ -212,32 +220,33 @@ html, body {
 }
 
 .planet {
-  position: absolute; /* au lieu de fixed */
-  top: 0; left: 0;
+  position: absolute;
+  top: 0; 
+  left: 0;
   width: 100vw;
   height: 500vh;
   z-index: -1;
+
   background: radial-gradient(
-    circle 400vh at 110% 50%, /* collée en haut */
+    circle 400vh at 120% 55%,
     #ffffff 0%,
     #ffffff 60%,
-    #111111 77%,
-#000000 100%
+    #111111 76%,
+    #000000 100%
   );
+
   animation: planetPulse 8s ease-in-out infinite;
 }
-
-
-
 
 @keyframes planetPulse {
   0%, 100% {
     background-size: 100% 100%;
   }
   50% {
-    background-size: 110% 110%;
+    background-size: 104% 104%;
   }
 }
+
 
 /* Section 1 : Game Engine */
 .section.one::before {
@@ -291,13 +300,13 @@ html, body {
   height: 15px;
   padding: 10px 20px;
   text-align: center;
-  color: #000;
-  background: transparent;
-  border: 2px solid #000;
   text-decoration: none;
   overflow: hidden;
   transition: color 0.3s ease;
+  border: 2px solid;
+  z-index: 0;
 }
+
 .btnn::before {
   content: "";
   position: absolute;
@@ -305,12 +314,34 @@ html, body {
   top: 100%;
   width: 100%;
   height: 100%;
-  background: black;
   z-index: -1;
   transition: top 0.3s ease;
 }
-.btnn:hover::before { top: 0; }
-.btnn:hover { color: #fff; }
+
+.btnn:hover::before {
+  top: 0;
+}
+
+.btnn.black {
+  color: #000;
+  border-color: #000;
+}
+.btnn.black::before {
+  background: #000;
+}
+.btnn.black:hover {
+  color: #fff;}
+
+.btnn.white {
+  color: #fff;
+  border-color: #fff;
+}
+.btnn.white::before {
+  background: #fff;
+}
+.btnn.white:hover {
+  color: #000;}
+
 
 /* ==========================
    7. ANIMATIONS

@@ -28,13 +28,7 @@ function adjustTextPosition() {
   const headerMiddleWidth = headerMiddle ? headerMiddle.offsetWidth : 0;
   const margin = 45;
 
-  const menuScaledValue =
-    viewportWidth -
-    (viewportWidth * scaledValue / 100) -
-    logoWidth -
-    headerMiddleWidth -
-    70 -
-    margin;
+  const menuScaledValue = viewportWidth - (viewportWidth * scaledValue / 100) - logoWidth - headerMiddleWidth - 70 - margin;
 
   menuIcon.style.marginLeft = `${menuScaledValue}px`;
 }
@@ -53,11 +47,14 @@ function toggleMenu() {
   const overlay = document.getElementById("overlay");
 
   const isOpen = menu.style.right === "0px";
+  const isDark = header.classList.contains("dark");
 
   menu.style.right = isOpen ? "-350px" : "0px";
   menuIcon.classList.toggle("open", !isOpen);
+  menuIcon.classList.toggle("open", !isOpen);
   header.classList.toggle("disabled", !isOpen);
   overlay.classList.toggle("active", !isOpen);
+  header.classList.toggle("dark", isOpen && !isDark);
 
   menu.style.width = '250px';
 }

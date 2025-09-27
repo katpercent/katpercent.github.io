@@ -47,17 +47,18 @@ function toggleMenu() {
   const overlay = document.getElementById("overlay");
 
   const isOpen = menu.style.right === "0px";
-  const isDark = header.classList.contains("dark");
 
   menu.style.right = isOpen ? "-350px" : "0px";
   menuIcon.classList.toggle("open", !isOpen);
-  menuIcon.classList.toggle("open", !isOpen);
   header.classList.toggle("disabled", !isOpen);
   overlay.classList.toggle("active", !isOpen);
-  header.classList.toggle("dark", isOpen && !isDark);
+  menu.style.width = "250px";
 
-  menu.style.width = '250px';
+  header.classList.toggle("menu-open", !isOpen);
 }
+
+
+
 
 document.getElementById("overlay").addEventListener("click", toggleMenu);
 document.getElementById("menuIcon").addEventListener("click", toggleMenu);
@@ -76,18 +77,12 @@ document.addEventListener("scroll", () => {
 });
 
 // ======================
-// EXTERNAL LINKS
-// ======================
-function openPage(url) {
-  window.open(url, "_blank");
-}
-
-// ======================
 // SECTION OBSERVER (Light vs Dark + Transition)
 // ======================
 const header = document.getElementById("header");
 const logo = document.getElementById("logo");
 const sections = document.querySelectorAll(".section");
+const bars = document.querySelectorAll(".bar");
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -116,6 +111,4 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1 });
 
-
 sections.forEach(section => observer.observe(section));
-

@@ -8,13 +8,20 @@
   font-style: normal;
 }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-family: 'CustomFont', sans-serif;
+
+  /* Firefox */
   scrollbar-width: none;
+
+  /* IE et Edge Legacy */
   -ms-overflow-style: none;
 }
+
+/* Chromium (Chrome, Brave, Edge, Opera) */
+html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
 }
@@ -108,14 +115,6 @@ html, body {
   cursor: pointer;
 }
 
-.white_bg {
-  background: #f2f2f2;
-}
-
-.dark_bg {
-  background: #020202;
-}
-
 .bar {
   width: 100%;
   height: 2px;
@@ -138,8 +137,19 @@ html, body {
   color: black;
 }
 
-.header.dark .bar{
+/* Par défaut : blanc */
+.bar {
+  background: white;
+}
+
+/* Mode sombre normal */
+.header.dark .bar {
   background: black;
+}
+
+/* Quand menu est ouvert → forcer blanc */
+.header.menu-open .bar {
+  background: white !important;
 }
 
 /* ==========================
